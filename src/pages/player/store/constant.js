@@ -1,0 +1,6 @@
+export const CHANGE_CURRENT_SONG = "change_current_song"
+export const CHNAGE_PLAYER_LIST = "change_palyer_list"
+export const CHANGE_CURRENT_SONG_INDEX = "change_current_song_list"
+export const CHANGE_SEQUENCE = "change_sequence"
+export const CHANGE_LYRICS = "change_lyrics"
+export const CHANGE_CURRENT_LYRIC_INDEX = "change_current_lyric_index"
