@@ -75,7 +75,7 @@ export const headerLinks = [
     },
     {
       title: "歌单",
-      link: "/discover/songs"
+      link: "/discover/songs-sheet"
     },
     {
       title: "主播电台",

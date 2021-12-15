@@ -1,4 +1,4 @@
-export const getLyricStr = (str) => {
+export const getLyricStr = (str = "") => {
 
     const parseExp = /\[(\d{2}):(\d{2})\.(\d{2,3})\]/;
     const lyrics = [];

@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { getSongDetailAction } from '@/pages/player/store';
 
 import { RankingWrapper } from './style';
+import { NavLink } from 'react-router-dom';
 const TopRanking = memo((props) => {
     const { rankings } = props;
     const { tracks = [] } = rankings;
@@ -19,8 +20,8 @@ const TopRanking = memo((props) => {
                     <img src={rankings.coverImgUrl + "?param=100y100"} alt="" />
                 </div>
                 <div className="top_info">
-                    <a href="#/" className="title">{ rankings.name }</a>
-                    <div className="play"></div>
+                    <NavLink to="#/" className="title">{ rankings.name }</NavLink>
+                    <div className="play" onClick={() => {playSong(tracks[0].id)}}></div>
                     <div className="sub"></div>
                 </div>
             </div>
@@ -30,12 +31,12 @@ const TopRanking = memo((props) => {
                         return (
                             <div className="ranking_item" key={item.id}>
                                 <span className="index">{index + 1}</span>
-                                <a href="#/" className="song_name">
+                                <NavLink to={`/discover/songs/${item.id}`} className="song_name">
                                     <span className="name">{item.name}</span>
                                     <div className="play_icon" onClick={() => playSong(item.id)}></div>
                                     <div className="add_icon"></div>
                                     <div className="sub_icon"></div>
-                                </a>
+                                </NavLink>
                             </div>
                         )
                     })

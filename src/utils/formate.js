@@ -14,6 +14,13 @@ export const formatDate = (date) => {
     return minutes + ':' + seconds;
 }
 
+export const getDate = (date) => {
+    const time = new Date(date);
+    const mounth = time.getMonth();
+    const day = time.getDate();
+    return `${mounth + 1}月${day}日`
+}
+
 export const getPalySong = (id) => {
     return `https://music.163.com/song/media/outer/url?id=${id}.mp3`;
 } 

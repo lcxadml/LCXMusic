@@ -17,7 +17,6 @@ const HotAnchor = memo(() => {
         dispatch(getHotAnchorAction())
     }, [dispatch])
 
-    console.log(hotAnchors);
     return (
         <AnchorWarpper>
             <div className="header">热门主播</div>

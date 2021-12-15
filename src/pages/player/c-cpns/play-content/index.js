@@ -1,20 +1,18 @@
 import React, { memo, useState } from 'react';
-import {useSelector, shallowEqual} from 'react-redux'
 import { ContentWrapper } from './style'
-const PlayContent = memo(() => {
-
+import Operator from '../../../../components/operator';
+const PlayContent = memo((props) => {
     const [isExtent, setIsExtent] = useState(false);
-    const { currentSong, lyrics } = useSelector(state => ({
-        currentSong: state.getIn(['player', 'currentSong']),
-        lyrics: state.getIn(['player', 'lyrics'])
-    }), shallowEqual)
-    
-    
+    // const { currentSong, lyrics } = useSelector(state => ({
+    //     currentSong: state.getIn(['player', 'currentSong']),
+    //     lyrics: state.getIn(['player', 'lyrics'])
+    // }), shallowEqual)
+    const { currentSong, lyrics=[], currentSongId } = props;
     const changeExtent = () => {
         setIsExtent(!isExtent);
     }
     return (
-        <ContentWrapper isExtent={isExtent}>
+        <ContentWrapper isExtent={ isExtent}>
             <div className="content_left">
                 <div className="image">
                     <img src={currentSong
@@ -44,37 +42,27 @@ const PlayContent = memo(() => {
                         </a>
                     </div>
                 </div>
-                <div className="operator">
-                    <div className="play_btn">
-                        <i>播放</i>
+                <Operator id={currentSongId} />
+                {
+                    lyrics.length === 0 ?
+                    <h2 className='no_song_content'>暂无歌词。</h2> : 
+                    <div>
+                        <div className="lyric_content">
+                            {
+                                lyrics.map((item, index) => {
+                                    return (
+                                        <p className="item" key={index}>{item.content ? item.content : <br/>}</p>
+                                    )
+                                })
+                            }
+                        </div>
+                        {
+                            lyrics.length < 7 ? "" :
+                            <span className="extent" onClick={changeExtent}>{isExtent ? "收起" : "展开"}</span>
+                        }
+                            </div>
+                        }
                     </div>
-                    <div className="add_btn"></div>
-                    <div className="collect_btn">
-                        <i>收藏</i>
-                    </div>
-                    <div className="share_btn">
-                        <i>分享</i>
-                    </div>
-                    <div className="down_btn">
-                        <i>
-                        下载
-                        </i>
-                    </div>
-                    <div className="comment_btn">
-                        <i>(200715)</i>
-                    </div>
-                </div>
-                <div className="lyric_content">
-                    {
-                        lyrics.map((item, index) => {
-                            return (
-                                <p className="item" key={item.time}>{item.content ? item.content : <br/>}</p>
-                            )
-                        })
-                    }
-                </div>
-                <a href='#/discover/player' className="extent" onClick={changeExtent}>{isExtent ? "收起" : "展开"}</a>
-            </div>
         </ContentWrapper>
     );
 });

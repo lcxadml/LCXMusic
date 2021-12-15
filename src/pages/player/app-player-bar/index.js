@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 import { formatDate, getPalySong } from '@/utils/formate.js'
 import { 
-    changeSequenceAction,
+     changeSequenceAction,
      getSongDetailAction,
      changeCurrentSong,
      changeCurrentLyricIndex
@@ -180,7 +180,7 @@ const PlayerBar = memo(() => {
                 <PlayInfo>
                     <div className="play_left">
                         <img src={currentSong?.al?.picUrl + "?param=34y34"} alt="" className="authur" />
-                        <NavLink to="/discover/player" className="mask">&nbsp;</NavLink>
+                        <NavLink to={`/discover/songs/${currentSong.id}`} className="mask">&nbsp;</NavLink>
                     </div>
                     <div className="play_right">
                         <div className="play_top">

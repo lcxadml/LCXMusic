@@ -24,6 +24,7 @@ width: 230px;
             display: block;
         }
         .play, .sub {
+            cursor: pointer;
             margin-top: 3px;
             background-image: url(${sprite_02});
             display: inline-block;

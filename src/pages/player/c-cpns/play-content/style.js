@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import sprite_cover from '@/assets/img/sprite_cover.png'
 import sprite_icon2 from '@/assets/img/sprite_icon2.png'
-import sprite_button from '@/assets/img/sprite_button.png'
 export const ContentWrapper = styled.div`
     display: flex;
     .content_left {
@@ -64,75 +63,7 @@ export const ContentWrapper = styled.div`
             background: url(${sprite_icon2});
             background-position: 0 -463px;
         }
-        .operator {
-            display: flex;
-            .play_btn {
-                width: 66px;
-                height: 31px;
-                background: url(${sprite_button});
-                background-position: right -428px;
-                i {
-                    margin-left: 10px;
-                    text-align: right;
-                    width: 51px;
-                    color: #fff;
-                    height: 31px;
-                    background: url(${sprite_button});
-                    background-position: 0 -387px;
-                }
-                i:before {
-                    display: inline-block;
-                    content: "";
-                    width: 20px;
-                    height: 18px;
-                    margin-right: 2px;
-                    background: url(${sprite_button});
-                    background-position: 0 -1622px;
-                    vertical-align: sub;
-                }
-            }
-            .add_btn {
-                height: 31px;
-                width: 31px;
-                background: url(${sprite_button});
-                background-position: 0 -1588px;
-            }
-            .collect_btn, .share_btn, .down_btn {
-                width: 59px;
-                height: 31px;
-                background: url(${sprite_button});
-                background-position: right -1020px;
-                margin-left: 5px;
-                i {
-                    text-align: right;
-                    width: 54px;
-                    background: url(${sprite_button});
-                    background-position: 0 -977px;
-                }
-            }
-            .collect_btn i {
-                background-position: 0 -977px;
-            }
-            .share_btn i {
-                background-position: 0 -1225px;
-            }
-            .down_btn i {
-                background-position:0 -2761px;
-            }
-            .comment_btn {
-                margin-left: 5px;
-                width: 86.2px;
-                height: 31px;
-                background: url(${sprite_button});
-                background-position: right -1020px; 
-                i {
-                    text-align:right;
-                    width: 81.2px;
-                    background: url(${sprite_button});
-                    background-position: 0 -1465px;
-                }
-            }
-        }
+        
         .lyric_content {
             margin: 40px 0 0 20px;
             height: ${props => props.isExtent ? "auto" : "325px"};
@@ -141,9 +72,17 @@ export const ContentWrapper = styled.div`
                 line-height: 25px;
             }
         }
+        .no_song_content {
+            text-align: center;
+            margin-top: 50px;
+        }
         .extent {
             margin-left: 20px;
             color: #0c73c2;
+            cursor: pointer;
+        }
+        .extent:hover {
+            text-decoration: underline;
         }
         .extent:after {
             content: "";

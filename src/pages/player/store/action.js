@@ -10,14 +10,12 @@ export const getSongDetailAction = (idx) => {
         // 2. 判断是否找到了该歌曲。
             if(songIndex !== -1) {  //找到了歌曲
                 const song = playList[songIndex];
-                console.log(song);
                 dispatch(changeSongDetailAction(song));
                 dispatch(changeCurrentSongIndexAction(songIndex));
             } else { // 没有找到歌曲
                 getSongDetail(idx).then(res => {
                     const song = res.songs && res.songs[0];
                     if(!song) return;
-                    console.log(song);
                     // 1. 将最新请求到的数据放入到播放列表中
                     const newPlayList = [...playList, song];
                     // 2. 更新播放列表数据
@@ -67,15 +65,12 @@ export const changeCurrentSong = (tag) => {
         switch (sequence) {
             case 1: //随机播放
                 let ramdomIndex = getRamdom(playList.length);
-                console.log(ramdomIndex);
                 currentSongIndex = ramdomIndex;
                 break;
             default: //单曲播放
                 currentSongIndex += tag;
-                console.log(playList);
                 if(currentSongIndex >= playList.length) currentSongIndex = 0;
                 if(currentSongIndex < 0) currentSongIndex = playList.length - 1;
-                console.log(currentSongIndex);
 
         }
         const currentSong = playList[currentSongIndex];
@@ -95,7 +90,7 @@ export const changeLyricsAction = (data) => {
 export const getLircAction = (id) => {
     return dispatch => {
         getLyric(id).then(res => {
-            let lyric = res.lrc.lyric;
+            let lyric = res.lrc && res.lrc.lyric;
             lyric = getLyricStr(lyric);
             dispatch(changeLyricsAction(lyric));
         })

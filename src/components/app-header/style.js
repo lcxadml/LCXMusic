@@ -5,6 +5,7 @@ export const HeaderWraper = styled.div`
     height: 75px;
     background-color: #242424;
     .content {
+        position: relative;
         height: 70px;
         display: flex;
         justify-content: space-between;
@@ -12,6 +13,9 @@ export const HeaderWraper = styled.div`
     .divider {
         height: 5px;
         background-color: #c20c0c;
+    }
+    .ant-input {
+        font-size: 12px;
     }
 `;
 export const HeaderLeft = styled.div`

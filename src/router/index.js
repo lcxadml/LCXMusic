@@ -47,7 +47,7 @@ const routes = [
                 component: Ranking
             },
             {
-                path: "/discover/songs",
+                path: "/discover/songs-sheet",
                 component: Songs
             },
             {
@@ -63,7 +63,7 @@ const routes = [
                 component: Album
             },
             {
-                path: "/discover/player",
+                path: "/discover/songs/:id",
                 component: Player
             }
         ]

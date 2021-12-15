@@ -59,9 +59,6 @@ export const CoverContainer = styled.div`
                     background-position: 0 0;
                     background-repeat: no-repeat;
                 }
-                .bottom:hover:after {
-                    background-position: 0 -115px;
-                }
             }
             .title {
                 overflow: hidden;
